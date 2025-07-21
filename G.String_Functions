@@ -1,0 +1,73 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    
+    int n, q;
+    cin >> n >> q;
+    string s;
+    cin >> s;
+    
+    while (q--) {
+        string cmd;
+        cin >> cmd;
+        
+        if (cmd == "pop_back") {
+            if (!s.empty()) {
+                s.pop_back();
+            }
+        }
+        else if (cmd == "front") {
+            if (!s.empty()) {
+                cout << s.front() << '\n';
+            }
+        }
+        else if (cmd == "back") {
+            if (!s.empty()) {
+                cout << s.back() << '\n';
+            }
+        }
+        else if (cmd == "sort") {
+            int l, r;
+            cin >> l >> r;
+            if (l > r) swap(l, r);
+            if (l >= 1 && r <= (int)s.size()) {
+                sort(s.begin() + (l - 1), s.begin() + r);
+            }
+        }
+        else if (cmd == "reverse") {
+            int l, r;
+            cin >> l >> r;
+            if (l > r) swap(l, r);
+            if (l >= 1 && r <= (int)s.size()) {
+                reverse(s.begin() + (l - 1), s.begin() + r);
+            }
+        }
+        else if (cmd == "print") {
+            int pos;
+            cin >> pos;
+            if (pos >= 1 && pos <= (int)s.size()) {
+                cout << s[pos - 1] << '\n';
+            }
+        }
+        else if (cmd == "substr") {
+            int l, r;
+            cin >> l >> r;
+            // Swap if l > r
+            if (l > r) swap(l, r);
+            if (l >= 1 && r <= (int)s.size()) {
+                cout << s.substr(l - 1, r - l + 1) << '\n';
+            }
+        }
+        else if (cmd == "push_back") {
+            char ch;
+            cin >> ch;
+            s.push_back(ch);
+        }
+    }
+    
+    return 0;
+}
