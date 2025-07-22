@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    string s; cin>>s;
+    stack<char> st;
+    for (auto c : s) {
+        if (c=='(' || c=='{' || c=='[') {
+            st.push(c);
+        }
+        else {
+            if (st.empty()) {
+                cout<<"no";
+                return 0;
+            }
+            else {
+                if (c==')'&&st.top() == '(') {
+                    st.pop();
+                    return 0;
+                }
+                if (c==']'&&st.top() == '[') {
+                    st.pop();
+                    return 0;
+                }
+                if (c=='}'&&st.top() == '{') {
+                    st.pop();
+                    return 0;
+                }
+                else {
+                    cout<<"no";
+                }
+
+            }
+        }
+        if (st.empty()) {
+            cout<<"yes";
+            return 0;
+        }
+        else {
+            cout<<"no";
+            return 0;
+        }
+    }
+}
