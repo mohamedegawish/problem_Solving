@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define all(v) v.begin(),v.end()
+
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+    ll n, m;
+    cin >> n >> m;
+
+    vector<ll> v1(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v1[i];
+    }
+
+    sort(all(v1));
+
+    while (m--) {
+        ll x;
+        cin >> x;
+
+        ll countt = upper_bound(all(v1), x) - v1.begin();
+        cout << countt << " ";
+    }
+
+    return 0;
+}
