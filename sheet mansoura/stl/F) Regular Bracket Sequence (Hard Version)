@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    string s;cin>>s;
+    stack<char>q;
+    for(auto it:s){
+        if(it=='{'||it=='['||it=='<'||it=='('){
+            q.push(it);
+           }
+           else{
+                if(q.empty()){
+                    cout<<"No";
+                    return 0;
+                }
+                else{
+                        if(it=='>'&&q.top()=='<'||it=='}'&&q.top()=='{'||it==']'&&q.top()=='['||it==')'&&q.top()=='('){
+                            q.pop();
+                        }
+           }
+           }
+    }
+    if(q.empty()){
+        cout<<"Yes";
+    }
+    else{
+        cout<<"No";
+    }
+
+    return 0;
+}
