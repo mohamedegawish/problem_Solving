@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define all(v) v.begin(),v.end()
+int main() {
+
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    ll num,countt=1,biggestCount=1;cin>>num;
+    vector<ll>v(num);
+    priority_queue<ll> vcountt;
+    for(int i=0;i<num;i++){
+        cin>>v[i];
+        if(i>0&&v[i]>=v[i-1]){
+            countt++;
+        }
+        else{
+            vcountt.push(countt);
+            countt=1;
+        }
+    }
+    vcountt.push(countt);
+
+    cout<<vcountt.top();
+
+    return 0;
+}
