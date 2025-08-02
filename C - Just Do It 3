@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+ int q;
+    cin >> q;
+
+    set<int> s;
+
+    while (q--) {
+        string query;
+        int x;
+        cin >> query >> x;
+
+        if (query == "insert") {
+            s.insert(x);
+        } else if (query == "find") {
+            if (s.find(x) != s.end()) {
+                cout << "found\n";
+            } else {
+                cout << "not found\n";
+            }
+        } else if (query == "lower_bound") {
+            auto it = s.lower_bound(x);
+            if (it != s.end()) {
+                cout << *it << '\n';
+            } else {
+                cout << "-1\n";
+            }
+        } else if (query == "upper_bound") {
+            auto it = s.upper_bound(x);
+            if (it != s.end()) {
+                cout << *it << '\n';
+            } else {
+                cout << "-1\n";
+            }
+        }
+    }
+
+    return 0;
+}
